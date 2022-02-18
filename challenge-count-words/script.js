@@ -1,7 +1,19 @@
 function calculateWords(chapterOfABook) {
   const wordCount = {};
-
-  // Write your code in here
+  let collectWordsArr = []
+  let wordsArr = chapterOfABook.split(' ');
+  for (let i=0; i<wordsArr.length; i++) {
+      let collectionOfSameWord = wordsArr.filter(word => word === wordsArr[i]);
+      collectWordsArr.push(collectionOfSameWord)
+  }
+   //to check what it returns
+  //  console.log('collectWordsArr:', collectWordsArr)
+  
+  if (chapterOfABook.length > 0) {
+    for (let word of collectWordsArr) {
+        wordCount[word[0]] = word.length;
+    }
+}
 
   return wordCount;
 }
